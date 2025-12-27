@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio - Graphic Designer</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  
+    <!-- Animated background elements -->
+    <div class="bg-elements">
+        <div class="float-element rocket">🚀</div>
+        <div class="float-element star">✨</div>
+        <div class="float-element flower">🌼</div>
+        <div class="float-element cloud">☁️</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Artivana</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="greeting">Hi 👋</div>
+            <h1 class="main-title">
+                <span class="title-line">I'm a</span>
+                <span class="title-highlight">Graphic Designer</span>
+            </h1>
+            <p class="tagline">Offering clean and professional design services<br>for individuals and businesses.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+           
+        </div>
+        <div class="hero-illustration">
+            <div class="rainbow-flow"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services <span class="amp">&</span> Specialties</h2>
+            <p class="section-subtitle">We are the design makers and we are the dreamers of dreams.</p>
+            
+            <div class="services-grid">
+                <div class="service-card" data-service="logo-design">
+                    <div class="service-icon">🎨</div>
+                    <h3>Logo Design</h3>
+                    <p>Unique and memorable logos that represent your brand identity.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="logo-design" aria-label="Quick view logo projects">Quick View</button>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="social-media">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Creatives</h3>
+                    <p>Eye-catching posts and stories for your social platforms.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="social-media" aria-label="Quick view social media projects">Quick View</button>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="posters-flyers">
+                    <div class="service-icon">📄</div>
+                    <h3>Posters &amp; Flyers</h3>
+                    <p>Professional promotional materials that grab attention.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="posters-flyers" aria-label="Quick view posters projects">Quick View</button>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="business-cards">
+                    <div class="service-icon">💼</div>
+                    <h3>Business Cards</h3>
+                    <p>Elegant cards that make lasting first impressions.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="business-cards" aria-label="Quick view business card projects">Quick View</button>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="menu-cards">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Menu Cards</h3>
+                    <p>Beautifully designed menus for restaurants and cafes.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="menu-cards" aria-label="Quick view menu projects">Quick View</button>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="presentations">
+                    <div class="service-icon">📊</div>
+                    <h3>PPT / Presentation Design</h3>
+                    <p>Professional presentations that communicate effectively.</p>
+                    <div class="service-actions">
+                        <button class="quickview-btn" data-service="presentations" aria-label="Quick view presentation projects">Quick View</button>
+                    </div>
+                </div>
+                
+                
+            
+        </div>
+    </section>
+
+    <!-- Projects moved to a separate page: projects.html -->
+
+
+    <!-- Project Quick View Modal -->
+    <div id="project-modal" class="project-modal" aria-hidden="true">
+        <div class="pm-overlay" tabindex="-1"></div>
+        <div class="pm-content" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+            <button class="pm-close" aria-label="Close projects">✕</button>
+            <h3 id="pm-title" class="section-title">Projects</h3>
+            <div class="pm-slider">
+                <button class="pm-prev" aria-label="Previous project">‹</button>
+                <div class="pm-viewport">
+                    <div class="pm-track" role="list"></div>
+                </div>
+                <button class="pm-next" aria-label="Next project">›</button>
+            </div>
+            <div class="pm-empty">No projects yet for this service.</div>
+            <!-- <div class="pm-footer">
+                <a class="secondary-button" id="pm-open-page" href="projects.html">Open full projects page</a>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            const projectsData = [
+                {id:'p1', service:'logo-design', title:'Sondos al hara', image:'image/poster2.png', desc:'Logo suite for a trading company.'},
+                {id:'p1',service:'logo-design', title:'Sabako', image:'image/logo3.jpg', desc:'Logo suite for a ecommerce website.'}, 
+                {id:'p1',service:'logo-design', title:'artivana', image:'image/logo4.png', desc:'Logo suite for a art work.'},
+                {id:'p1',service:'logo-design', title:'Indian flower house', image:'image/logo6.png', desc:'Logo suite for a flower shop.'},
+                {id:'p2', service:'social-media', title:'Social Spark', image:'image/social1.png', desc:'Instagram pack .'},
+                {id:'p2',service:'social-media', title:'Social Spark', image:'image/social2.png', desc:'Instagram pack for a podcast channel.'},
+                {id:'p2',service:'social-media', title:'Social Spark', image:'image/social3.png', desc:'Instagram pack for a pizza brand.'},
+                {id:'p2',service:'social-media', title:'Social Spark', image:'image/social4.png', desc:'Instagram pack for a fashion brand.'},
+                {id:'p3', service:'posters-flyers', title:'Biriyani challenge', image:'image/poster1.png', desc:'Bold poster design for a challenge.'},
+                {id:'p3',service:'posters-flyers', title:'solar company', image:'image/poster3.png', desc:'Bold poster design for a solar company.'},
+                {id:'p3',service:'posters-flyers', title:'pizza', image:'image/poster4.png', desc:'Bold poster design for a pizza shop.'},
+                {id:'p4', service:'posters-flyers', title:'business', image:'image/poster5.png', desc:'Colorful poster design for a business.'},
+                {id:'p5', service:'business-cards', title:'Indian Flower House', image:'image/bscard1.png', desc:'A luxury minimalist business card design for a flower shop'},
+                {id:'p5',service:'business-cards', title:'Indian Flower House', image:'image/bscard2.png', desc:'A luxury minimalist business card design for a flower shop.'},
+                {id:'p5',service:'business-cards', title:'NEXORA STUDIO', image:'image/bscard3.png', desc:'Minimal business card design.'},
+                {id:'p5',service:'business-cards', title:'NEXORA STUDIO', image:'image/bscard4.png', desc:'Minimal business card design.'},
+                {id:'p6', service:'menu-cards', title:'ZAFFRANÉ KITCHEN', image:'image/menu1.png', desc:'Luxury restaurant menu poster design.'},
+                {id:'p6',service:'menu-cards', title:'ZAFFRANÉ KITCHEN', image:'image/menu2.png', desc:'Luxury restaurant menu poster design.'},
+                {id:'p6',service:'menu-cards', title:'AURELIA DINING', image:'image/menu3.png', desc:'Elegant luxury restaurant menu design'},
+                {id:'p6',service:'menu-cards', title:'LUNARIA EATS', image:'image/menu4.png', desc:'Elegant luxury restaurant menu design'},
+                {id:'p6', service:'presentations', title:'Sales Pitch', image:'image/menu5.png', desc:'Engaging presentation for sales team.'},
+
+                {id:'p8', service:'static-websites', title:'Landing Page', image:'image/hero.jpeg', desc:'Single-page portfolio for a photographer.'},
+                {id:'p9', service:'custom-design', title:'Custom Campaign', image:'', desc:'Multi-channel campaign assets.'}
+            ];
+
+            const modal = document.getElementById('project-modal');
+            const gallery = modal.querySelector('.pm-gallery');
+            const empty = modal.querySelector('.pm-empty');
+            const closeBtn = modal.querySelector('.pm-close');
+            const overlay = modal.querySelector('.pm-overlay');
+
+
+            function openModal(service){
+                const track = modal.querySelector('.pm-track');
+                const prevBtn = modal.querySelector('.pm-prev');
+                const nextBtn = modal.querySelector('.pm-next');
+                const viewport = modal.querySelector('.pm-viewport');
+
+                track.innerHTML = '';
+                let slides = projectsData.filter(p => service === 'all' || p.service === service);
+                while(slides.length < 5){
+                    slides.push({id:`placeholder-${slides.length}`, service: service, title:'Coming Soon', image:'', desc:'More projects coming soon.'});
+                }
+
+                slides.forEach(p => {
+                    const slide = document.createElement('div');
+                    slide.className = 'pm-slide' + (String(p.id).startsWith('placeholder') ? ' pm-placeholder' : '');
+                    slide.setAttribute('role','listitem');
+                    slide.innerHTML = `
+                        <div class="pm-thumb" ${p.image ? `style="background-image:url('${p.image}')"` : 'style="background: linear-gradient(135deg,#e6e9f0,#cfd8e3);filter:grayscale(10%);opacity:0.95;"'}></div>
+                        <div class="pm-meta"><h4>${p.title}</h4><p>${p.desc}</p></div>
+                    `;
+                    slide.addEventListener('click', (e) => { e.stopPropagation(); openLightbox(p); });
+                    track.appendChild(slide);
+                });
+
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden','false');
+                closeBtn.focus();
+
+                // Carousel state
+                let currentIndex = 0;
+                let slidesPerView = 3;
+                let slideCount = slides.length;
+                const updateSlidesPerView = () => {
+                    const w = window.innerWidth;
+                    slidesPerView = w >= 992 ? 3 : (w >= 640 ? 2 : 1);
+                    const slideWidth = 100 / slidesPerView;
+                    modal.querySelectorAll('.pm-slide').forEach(s=> s.style.width = slideWidth + '%');
+                    // clamp currentIndex
+                    currentIndex = Math.min(currentIndex, Math.max(0, slideCount - slidesPerView));
+                    update();
+                };
+
+                const update = () => {
+                    const shift = (currentIndex * (100 / slidesPerView));
+                    track.style.transform = `translateX(-${shift}%)`;
+                    prevBtn.disabled = currentIndex === 0;
+                    nextBtn.disabled = currentIndex >= slideCount - slidesPerView;
+                };
+
+                const prev = () => { currentIndex = Math.max(0, currentIndex - 1); update(); };
+                const next = () => { currentIndex = Math.min(slideCount - slidesPerView, currentIndex + 1); update(); };
+
+                // attach handlers
+                prevBtn.onclick = prev;
+                nextBtn.onclick = next;
+
+                // keyboard and swipe support
+                const onKey = (e) => { if(e.key === 'ArrowLeft') prev(); if(e.key === 'ArrowRight') next(); };
+                document.addEventListener('keydown', onKey);
+
+                // drag / swipe
+                let startX = 0, currentTranslate = 0, isDown = false;
+                const onPointerDown = (e) => { isDown = true; startX = e.clientX || e.touches && e.touches[0].clientX; track.style.transition = 'none'; };
+                const onPointerMove = (e) => {
+                    if(!isDown) return;
+                    const x = e.clientX || e.touches && e.touches[0].clientX;
+                    const delta = x - startX;
+                    const pct = delta / viewport.offsetWidth * 100;
+                    track.style.transform = `translateX(-${(currentIndex * (100 / slidesPerView)) - pct}%)`;
+                };
+                const onPointerUp = (e) => {
+                    if(!isDown) return; isDown = false; track.style.transition = '';
+                    const x = e.clientX || e.changedTouches && e.changedTouches[0].clientX;
+                    const delta = x - startX;
+                    if(Math.abs(delta) > (viewport.offsetWidth * 0.15)){
+                        if(delta < 0) next(); else prev();
+                    } else {
+                        update();
+                    }
+                };
+
+                viewport.addEventListener('pointerdown', onPointerDown, {passive:true});
+                window.addEventListener('pointermove', onPointerMove, {passive:true});
+                window.addEventListener('pointerup', onPointerUp, {passive:true});
+
+                // handle resize
+                const onResize = () => updateSlidesPerView();
+                window.addEventListener('resize', onResize);
+
+                // initialize layout
+                setTimeout(updateSlidesPerView, 10);
+
+                // cleanup when closed
+                const cleanup = () => {
+                    prevBtn.onclick = null; nextBtn.onclick = null;
+                    document.removeEventListener('keydown', onKey);
+                    viewport.removeEventListener('pointerdown', onPointerDown);
+                    window.removeEventListener('pointermove', onPointerMove);
+                    window.removeEventListener('pointerup', onPointerUp);
+                    window.removeEventListener('resize', onResize);
+                };
+
+                closeBtn.addEventListener('click', () => { cleanup(); closeModal(); }, {once:true});
+                overlay.addEventListener('click', () => { cleanup(); closeModal(); }, {once:true});
+            }
+
+            function closeModal(){
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden','true');
+                // remove lightbox if present
+                const lb = modal.querySelector('.pm-lightbox'); if(lb) lb.remove();
+            }
+
+            function openLightbox(p){
+                let lb = modal.querySelector('.pm-lightbox');
+                if(!lb){
+                    lb = document.createElement('div');
+                    lb.className = 'pm-lightbox';
+                    modal.querySelector('.pm-content').appendChild(lb);
+                }
+                lb.innerHTML = `
+                    <button class="lb-close" aria-label="Close image">✕</button>
+                    <div class="lb-img" style="${p.image ? `background-image:url('${p.image}')` : 'background:linear-gradient(135deg,#f093fb,#f5576c)'}"></div>
+                    <div class="lb-caption"><h4>${p.title}</h4><p>${p.desc}</p></div>
+                `;
+                lb.querySelector('.lb-close').addEventListener('click', () => lb.remove());
+            }
+
+            document.querySelectorAll('.quickview-btn').forEach(btn => {
+                btn.addEventListener('click', e => {
+                    const svc = btn.dataset.service;
+                    openModal(svc);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+        })();
+    </script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work Together</h2>
+            <p class="section-subtitle">If you need quality design work, let's connect!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/918921087740" target="_blank">8921087740</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <h3>Open For</h3>
+                            <p>Freelance & Collaboration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links" aria-label="Social links">
+                    <a href="https://www.linkedin.com/in/nandana-k-42296b32a?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnWHdqgExYG2ZImgsjwGasFmeriuVUh9ypV88Y2W3oH8mfGOdpYjH27JddQu0_aem_f_1UvhAzfiN2gnji87hfqw" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#fff" d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.12 1 2.49 1s2.49 1.12 2.49 2.5zM.26 8.04h4.46v13.96H.26zM8.24 8.04h4.28v1.9h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9v7.5h-4.48v-6.64c0-1.58-.03-3.62-2.2-3.62-2.2 0-2.54 1.72-2.54 3.49v6.77H8.24z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/__nandu.zz_?igsh=MWRjbmZtNWx3cmVjaQ==" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                        <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#fff" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm6 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
+                        Instagram
+                    </a>
+                </div>
+
+                <div class="whatsapp-cta">
+                    <a href="https://wa.me/918921087740" target="_blank" class="whatsapp-button">
+                        <span class="wa-icon">💬</span>
+                        Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Creative Designer Portfolio. All rights reserved.</p>
+            <p class="footer-note">Designed with pure imagination ✨</p>
+        </div>
+    </footer>
+
+
+    
+</body>
+
+</html>
+

@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Creative Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Creative Designer</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="porfolio.html#services">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="porfolio.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="projects">
+        <div class="container">
+            <div class="projects-header">
+                <h2 class="section-title">Projects <span class="small">— <span id="projects-filter-name">All</span></span></h2>
+                <a href="porfolio.html#services" class="secondary-button">Back to Services</a>
+            </div>
+
+            <div class="projects-controls">
+                <button class="filter-btn" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="logo-design">Logo Design</button>
+                <button class="filter-btn" data-filter="social-media">Social Media</button>
+                <button class="filter-btn" data-filter="posters-flyers">Posters &amp; Flyers</button>
+                <button class="filter-btn" data-filter="business-cards">Business Cards</button>
+                <button class="filter-btn" data-filter="menu-cards">Menu Cards</button>
+                <button class="filter-btn" data-filter="presentations">Presentations</button>
+                <button class="filter-btn" data-filter="static-websites">Websites</button>
+                <button class="filter-btn" data-filter="custom-design">Custom</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card" data-service="logo-design">
+                    <div class="project-image" style="background: linear-gradient(135deg,#667eea,#764ba2);"></div>
+                    <div class="project-info"><h3>Brandmark Trio</h3><p>Logo suite for a boutique coffee shop.</p></div>
+                </div>
+
+                <div class="project-card" data-service="social-media">
+                    <div class="project-image" style="background: linear-gradient(135deg,#f093fb,#f5576c);"></div>
+                    <div class="project-info"><h3>Social Spark</h3><p>Instagram pack for a lifestyle brand.</p></div>
+                </div>
+
+                <div class="project-card" data-service="posters-flyers">
+                    <div class="project-image" style="background: linear-gradient(135deg,#ffd140,#ff7a18);"></div>
+                    <div class="project-info"><h3>Event Poster</h3><p>Bold poster design for a local event.</p></div>
+                </div>
+
+                <div class="project-card" data-service="business-cards">
+                    <div class="project-image" style="background: linear-gradient(135deg,#00c6ff,#0072ff);"></div>
+                    <div class="project-info"><h3>Elegant Card</h3><p>Minimal business card design.</p></div>
+                </div>
+
+                <div class="project-card" data-service="menu-cards">
+                    <div class="project-image" style="background: linear-gradient(135deg,#ffecd2,#fcb69f);"></div>
+                    <div class="project-info"><h3>Bistro Menu</h3><p>Stylish menu layout for a café.</p></div>
+                </div>
+
+                <div class="project-card" data-service="presentations">
+                    <div class="project-image" style="background: linear-gradient(135deg,#34e89e,#0f3443);"></div>
+                    <div class="project-info"><h3>Investor Deck</h3><p>Clean and persuasive presentation slides.</p></div>
+                </div>
+
+                <div class="project-card" data-service="static-websites">
+                    <div class="project-image" style="background: linear-gradient(135deg,#a18cd1,#fbc2eb);"></div>
+                    <div class="project-info"><h3>Landing Page</h3><p>Single-page portfolio for a photographer.</p></div>
+                </div>
+
+                <div class="project-card" data-service="custom-design">
+                    <div class="project-image" style="background: linear-gradient(135deg,#f6d365,#fda085);"></div>
+                    <div class="project-info"><h3>Custom Campaign</h3><p>Multi-channel campaign assets.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function(){
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projects = document.querySelectorAll('.project-card');
+            const grid = document.querySelector('.projects-grid');
+            const filterName = document.getElementById('projects-filter-name');
+
+            function applyFilter(filter){
+                filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+                filterName.textContent = filter === 'all' ? 'All' : document.querySelector(`.filter-btn[data-filter="${filter}"]`).textContent;
+                projects.forEach(card => {
+                    const svc = card.dataset.service;
+                    card.style.display = (filter === 'all' || svc === filter) ? 'block' : 'none';
+                });
+
+                // remove old placeholders then add new ones to reach at least 5 visible cards
+                grid.querySelectorAll('.project-card.placeholder').forEach(p=>p.remove());
+                let visibleCount = Array.from(projects).filter(c=> c.style.display !== 'none').length;
+                while(visibleCount < 5){
+                    const ph = document.createElement('div');
+                    ph.className = 'project-card placeholder';
+                    ph.innerHTML = `<div class="project-image" style="background: linear-gradient(135deg,#e6e9f0,#cfd8e3);"></div><div class="project-info"><h3>Coming Soon</h3><p>More projects are coming for this category.</p></div>`;
+                    grid.appendChild(ph);
+                    visibleCount++;
+                }
+            }
+
+            // read service from query param
+            const params = new URLSearchParams(window.location.search);
+            const initial = params.get('service') || 'all';
+            applyFilter(initial);
+
+            // set up buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    history.replaceState(null, '', `?service=${filter}`);
+                    applyFilter(filter);
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html> -->

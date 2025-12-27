@@ -1,0 +1,16 @@
+# Node
+node_modules/
+
+# Local env
+.env
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Build / packaging
+dist/
+portfolio.zip
