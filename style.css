@@ -163,6 +163,47 @@ body::after {
     width: 100%;
 }
 
+/* Mobile nav toggle */
+.nav-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:#fff;cursor:pointer}
+.nav-toggle .hamburger{display:block;width:22px;height:2px;background:#fff;border-radius:2px;position:relative}
+.nav-toggle .hamburger::before,.nav-toggle .hamburger::after{content:'';position:absolute;left:0;width:22px;height:2px;background:#fff;border-radius:2px}
+.nav-toggle .hamburger::before{top:-6px}
+.nav-toggle .hamburger::after{top:6px}
+
+/* Mobile nav open state */
+.navbar.nav-open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(26,26,46,0.96);padding:1rem 20px;gap:1rem;border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+.navbar.nav-open{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+
+/* Smaller breakpoints adjustments */
+@media (max-width: 992px){
+    .nav-content{padding:0 16px}
+}
+
+@media (max-width: 768px){
+    .nav-links{display:none}
+    .nav-toggle{display:inline-flex;align-items:center;gap:0.5rem}
+
+    .hero{padding:90px 16px 40px}
+    .main-title{font-size:2.6rem}
+    .tagline{font-size:1.05rem}
+
+    /* ensure services grid uses full width nicely */
+    .services{padding:80px 16px}
+
+    /* modal & slider tweaks for small screens */
+    .pm-content{width:calc(100% - 32px);padding:16px}
+    .pm-slider{gap:8px}
+    .pm-thumb{height:110px}
+}
+
+@media (max-width: 480px){
+    .hero{padding:70px 12px 32px}
+    .main-title{font-size:2rem}
+    .tagline{font-size:1rem}
+    .pm-thumb{height:90px}
+    .lb-img{width:100%;height:45vh}
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;

@@ -21,6 +21,9 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">Artivana</div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#services">Services</a>
@@ -309,6 +312,22 @@
             closeBtn.addEventListener('click', closeModal);
             overlay.addEventListener('click', closeModal);
             document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+            // Mobile nav toggle
+            const nav = document.querySelector('.navbar');
+            const navToggle = document.querySelector('.nav-toggle');
+            if(navToggle){
+                navToggle.addEventListener('click', () => {
+                    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', String(!expanded));
+                    nav.classList.toggle('nav-open');
+                });
+                document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', ()=>{
+                    nav.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-expanded','false');
+                }));
+                document.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ nav.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded','false'); }});
+            }
 
         })();
     </script>
