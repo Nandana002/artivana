@@ -1,12 +1,18 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects — Creative Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">Creative Designer</div>
@@ -21,8 +27,9 @@
 
     <section class="projects">
         <div class="container">
-            <div class="projects-header">
-                <h2 class="section-title">Projects <span class="small">— <span id="projects-filter-name">All</span></span></h2>
+            <div class="projects-header reveal-up">
+                <h2 class="section-title">Projects <span class="small">— <span
+                            id="projects-filter-name">All</span></span></h2>
                 <a href="porfolio.html#services" class="secondary-button">Back to Services</a>
             </div>
 
@@ -41,55 +48,130 @@
             <div class="projects-grid">
                 <div class="project-card" data-service="logo-design">
                     <div class="project-image" style="background: linear-gradient(135deg,#667eea,#764ba2);"></div>
-                    <div class="project-info"><h3>Brandmark Trio</h3><p>Logo suite for a boutique coffee shop.</p></div>
+                    <div class="project-info">
+                        <h3>Brandmark Trio</h3>
+                        <p>Logo suite for a boutique coffee shop.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="social-media">
                     <div class="project-image" style="background: linear-gradient(135deg,#f093fb,#f5576c);"></div>
-                    <div class="project-info"><h3>Social Spark</h3><p>Instagram pack for a lifestyle brand.</p></div>
+                    <div class="project-info">
+                        <h3>Social Spark</h3>
+                        <p>Instagram pack for a lifestyle brand.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="posters-flyers">
                     <div class="project-image" style="background: linear-gradient(135deg,#ffd140,#ff7a18);"></div>
-                    <div class="project-info"><h3>Event Poster</h3><p>Bold poster design for a local event.</p></div>
+                    <div class="project-info">
+                        <h3>Event Poster</h3>
+                        <p>Bold poster design for a local event.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="business-cards">
                     <div class="project-image" style="background: linear-gradient(135deg,#00c6ff,#0072ff);"></div>
-                    <div class="project-info"><h3>Elegant Card</h3><p>Minimal business card design.</p></div>
+                    <div class="project-info">
+                        <h3>Elegant Card</h3>
+                        <p>Minimal business card design.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="menu-cards">
                     <div class="project-image" style="background: linear-gradient(135deg,#ffecd2,#fcb69f);"></div>
-                    <div class="project-info"><h3>Bistro Menu</h3><p>Stylish menu layout for a café.</p></div>
+                    <div class="project-info">
+                        <h3>Bistro Menu</h3>
+                        <p>Stylish menu layout for a café.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="presentations">
                     <div class="project-image" style="background: linear-gradient(135deg,#34e89e,#0f3443);"></div>
-                    <div class="project-info"><h3>Investor Deck</h3><p>Clean and persuasive presentation slides.</p></div>
+                    <div class="project-info">
+                        <h3>Investor Deck</h3>
+                        <p>Clean and persuasive presentation slides.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="static-websites">
                     <div class="project-image" style="background: linear-gradient(135deg,#a18cd1,#fbc2eb);"></div>
-                    <div class="project-info"><h3>Landing Page</h3><p>Single-page portfolio for a photographer.</p></div>
+                    <div class="project-info">
+                        <h3>Landing Page</h3>
+                        <p>Single-page portfolio for a photographer.</p>
+                    </div>
                 </div>
 
                 <div class="project-card" data-service="custom-design">
                     <div class="project-image" style="background: linear-gradient(135deg,#f6d365,#fda085);"></div>
-                    <div class="project-info"><h3>Custom Campaign</h3><p>Multi-channel campaign assets.</p></div>
+                    <div class="project-info">
+                        <h3>Custom Campaign</h3>
+                        <p>Multi-channel campaign assets.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Animation Scripts -->
     <script>
-        (function(){
+        document.addEventListener('DOMContentLoaded', () => {
+            // Custom Cursor Logic
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    cursorDot.style.left = `${e.clientX}px`;
+                    cursorDot.style.top = `${e.clientY}px`;
+                    cursorOutline.animate({
+                        left: `${e.clientX}px`,
+                        top: `${e.clientY}px`
+                    }, { duration: 500, fill: "forwards" });
+                });
+
+                // Hover Effects
+                const addHover = () => document.body.classList.add('hovering');
+                const removeHover = () => document.body.classList.remove('hovering');
+
+                document.querySelectorAll('a, button, .project-card').forEach(el => {
+                    el.addEventListener('mouseenter', addHover);
+                    el.addEventListener('mouseleave', removeHover);
+                });
+
+                // Re-bind hover for dynamic elements if needed
+                window.refreshHover = () => {
+                    document.querySelectorAll('.project-card').forEach(el => {
+                        el.removeEventListener('mouseenter', addHover);
+                        el.removeEventListener('mouseleave', removeHover);
+                        el.addEventListener('mouseenter', addHover);
+                        el.addEventListener('mouseleave', removeHover);
+                    });
+                };
+            }
+
+            // Scroll Reveal Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe static elements
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <script>
+        (function () {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const projects = document.querySelectorAll('.project-card');
             const grid = document.querySelector('.projects-grid');
             const filterName = document.getElementById('projects-filter-name');
 
-            function applyFilter(filter){
+            function applyFilter(filter) {
                 filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
                 filterName.textContent = filter === 'all' ? 'All' : document.querySelector(`.filter-btn[data-filter="${filter}"]`).textContent;
                 projects.forEach(card => {
@@ -97,14 +179,38 @@
                     card.style.display = (filter === 'all' || svc === filter) ? 'block' : 'none';
                 });
 
-                // remove old placeholders then add new ones to reach at least 5 visible cards
-                grid.querySelectorAll('.project-card.placeholder').forEach(p=>p.remove());
-                let visibleCount = Array.from(projects).filter(c=> c.style.display !== 'none').length;
-                while(visibleCount < 5){
+                // remove old placeholders
+                grid.querySelectorAll('.project-card.placeholder').forEach(p => p.remove());
+
+                // Add staggered animation to visible cards
+                let delayCounter = 0;
+                projects.forEach(card => {
+                    const svc = card.dataset.service;
+                    const isVisible = (filter === 'all' || svc === filter);
+
+                    if (isVisible) {
+                        card.style.display = 'block';
+                        // Reset animation
+                        card.classList.remove('reveal-up', 'reveal-active');
+                        void card.offsetWidth; // trigger reflow
+
+                        card.style.transitionDelay = `${delayCounter * 100}ms`;
+                        card.classList.add('reveal-up', 'reveal-active');
+                        delayCounter++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Fill with placeholders if needed
+                let visibleCount = delayCounter;
+                while (visibleCount < 5) {
                     const ph = document.createElement('div');
-                    ph.className = 'project-card placeholder';
+                    ph.className = 'project-card placeholder reveal-up reveal-active';
+                    ph.style.transitionDelay = `${visibleCount * 100}ms`;
                     ph.innerHTML = `<div class="project-image" style="background: linear-gradient(135deg,#e6e9f0,#cfd8e3);"></div><div class="project-info"><h3>Coming Soon</h3><p>More projects are coming for this category.</p></div>`;
                     grid.appendChild(ph);
+                    if (window.refreshHover) window.refreshHover();
                     visibleCount++;
                 }
             }
@@ -125,5 +231,7 @@
         })();
     </script>
 
+
 </body>
-</html> -->
+
+</html>
